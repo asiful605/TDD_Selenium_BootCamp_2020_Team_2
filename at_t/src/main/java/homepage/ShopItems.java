@@ -37,13 +37,10 @@ public class ShopItems extends WebAPI {
     WebElement addPlan;
     @FindBy(how=How.XPATH,using = "//button[contains(@class,'btn btn-primary-2 false bg-functional-blue color-ui-white btn-large btn-full-width')]")
     WebElement clickContinue;
-
-    public void clickhamburger() throws InterruptedException {
+    public void maximizeWindow(){
         driver.manage().window().maximize();
-        Hamburgerlink.click();
-        //Hamburgerlink.click();
-        System.out.println(driver.getCurrentUrl());
     }
+
     public void findDeals() {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", deals);

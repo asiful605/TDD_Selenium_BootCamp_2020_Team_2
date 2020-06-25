@@ -125,14 +125,6 @@ public class WebAPI {
         driver.manage().window().maximize();
     }
 
-//    public void findBrokenLink() {
-//        List<WebElement> links = driver.findElements(By.tagName("a"));
-//        System.out.println("Total links are " + links.size());
-//        for (int i = 0; i < links.size(); i++) {
-//            WebElement ele = links.get(i);
-//            String url = ele.getAttribute("href");
-//            verifyLinkActive(url);
-//        }
 
     public void scrollDownTillEnd() {
         JavascriptExecutor js1 = (JavascriptExecutor) driver;
@@ -570,8 +562,6 @@ public class WebAPI {
             System.out.println("CSS locator didn't work");
         }
     }
-
-
     // Customer Made Helper Methods for Amex.com
     public void brokenLink() throws IOException {
         //Step:1-->Get the list of all the links and images
@@ -601,16 +591,13 @@ public class WebAPI {
             System.out.println(activeLinks.get(j).getAttribute("href") + "--------->>> " + response);
         }
     }
-
     //  By Using FindBY@ Web Elements for Page objects
     public void inputValueInTextBoxByWebElement(WebElement webElement, String value) {
         webElement.sendKeys(value + Keys.ENTER);
     }
-
     public void clearInputBox(WebElement webElement) {
         webElement.clear();
     }
-
     public String getTextByWebElement(WebElement webElement) {
         String text = webElement.getText();
         return text;
@@ -662,7 +649,18 @@ public class WebAPI {
             }
         }
     }
+    public void Enter(){
+        Actions drpdown = new Actions(driver);
+        drpdown.sendKeys(Keys.ENTER).perform();
+    }
+    public void navigateurl(String url){
+        driver.navigate().to(url);
+    }
+
+    //Drop Down for Index
+    public void selectOptionByIndex(WebElement element, String value) {
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
+    }
 }
-
-
 

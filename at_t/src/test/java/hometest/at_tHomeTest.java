@@ -32,7 +32,6 @@ public class at_tHomeTest extends WebAPI {
 //      }
 //      @Test (priority = 4)
 //      public void testscrolltoend() throws InterruptedException {
-//        //driver.get("https://www.att.com/");
 //        getInitElements();
 //        mainhomepage.scrolltoend();
 //      }
@@ -92,11 +91,23 @@ public class at_tHomeTest extends WebAPI {
 //      getInitElements();
 //      mainhomepage.UseBusiness();
 //      }
-      @Test(priority = 16)
-      public void testtv(){
-        TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
-        }.getClass().getEnclosingMethod().getName()));
+//      @Test(priority = 16)
+//      public void testtv(){
+//        TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
+//        }.getClass().getEnclosingMethod().getName()));
+//        getInitElements();
+//        mainhomepage.useTV();
+//    }
+//    @Test(priority = 17)
+//        public void testsupport(){
+//        getInitElements();
+//        mainhomepage.useonelinesupport();
+//    }
+    @Test(priority = 17)
+    public void testbrokenlink(){
         getInitElements();
-        mainhomepage.useTV();
+        mainhomepage.getBrokenLink();
     }
+
+
 }

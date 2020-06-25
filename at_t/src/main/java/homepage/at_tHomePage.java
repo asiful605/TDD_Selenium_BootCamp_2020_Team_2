@@ -8,6 +8,9 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static webelements.at_tWebelements.*;
@@ -55,80 +58,131 @@ public class at_tHomePage extends WebAPI {
     WebElement useBusiness;
     @FindBy(how = How.XPATH, using = tv)
     WebElement usetv;
+    @FindBy(how = How.XPATH, using = supportcenter)
+    WebElement usesupportcenter;
+    @FindBy(how = How.XPATH, using = forDealsUrl)
+    WebElement useforDealsUrl;
+    @FindBy(how = How.XPATH, using = prepaidUrl)
+    WebElement useprepaidUrl;
+
+    //methods
+    public void findBrokenLink() {
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        System.out.println("Total links are " + links.size());
+        for (int i = 0; i < links.size(); i++) {
+            WebElement ele = links.get(i);
+            String url = ele.getAttribute("href");
+            verifyLinkActive(url);
+        }
+    }
+    public static void verifyLinkActive(String linkUrl) {
+        try {
+            URL url = new URL(linkUrl);
+            HttpURLConnection httpURLConnect = (HttpURLConnection) url.openConnection();
+            httpURLConnect.setConnectTimeout(3000);
+            httpURLConnect.connect();
+            if (httpURLConnect.getResponseCode() == 200) {
+                System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage());
+            }
+            if (httpURLConnect.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) {
+                System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage() + " - " + HttpURLConnection.HTTP_NOT_FOUND);
+            }
+        } catch (Exception e) {
+        }
+    }
 
     public void maximizeWindow(){
         driver.manage().window().maximize();
     }
 
     public void usersearchbox(){
-       driver.get(url);
+        maximizeWindow();
         usersearchbox.sendKeys("AT&T deals");
+
     }
-    public void searchclickbutton()
-    {
+    public void searchclickbutton() {
+        maximizeWindow();
         clickonsearchbutton.click();
     }
     public void scrolldownwebpage(){
+        maximizeWindow();
         JavascriptExecutor scroll = (JavascriptExecutor)driver;
         scroll.executeScript("window.scrollBy(0, 2000)");
     }
     public void scrolltoend() throws InterruptedException {
+        //maximizeWindow();
         JavascriptExecutor scrollend = (JavascriptExecutor)driver;
         scrollend.executeScript("window.scrollTo(10, document.body.scrollHeight");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     public void clickaccountlogin() {
+        //maximizeWindow();
         useraccountlogin.click();
     }
     public void clickoniphoneimage() {
+        //maximizeWindow();
         webelementofiphoneimage.click();
     }
     public void selectpricingoption(){
+        //maximizeWindow();
         useshopiphone.click();
-        //driver.get("https://www.att.com/buy/phones/apple-iphone-11-64gb-purple.html?offerid=13700004");
         webElementpricingoptions.click();
         Select prcoption = new Select(driver.findElement(By.xpath(pricingoptions)));
         prcoption.selectByIndex(1);
     }
     public void hoveringOnMenuElement() {
+        //maximizeWindow();
         Actions actions =new Actions(driver);
         actions.moveToElement(MenuElement).perform();
         actions.moveToElement(netElement).click().perform();
         actions.moveToElement(ExploreNetElement).click();
     }
     public void UserclickOnImageelement(){
-        driver.get(forDealsUrl);
+        maximizeWindow();
+        useforDealsUrl.click();
         clickOnImageelement.click();
         String title= driver.getTitle();
         System.out.println(title);
         Assert.assertEquals(driver.getTitle(),driver.getTitle());
     }
     public void handleAlert(){
-        driver.get(prepaidUrl);
+        maximizeWindow();
+        useprepaidUrl.click();
         Alert alt =driver.switchTo().alert();
         alt.accept();
     }
     public void userDealsUpdate() throws InterruptedException {
+        maximizeWindow();
         getDealsUpdate.sendKeys("asiful6288@yahoo.com");
         userSignmeUp.click();
-
     }
     public void checkUpgrade(){
+        maximizeWindow();
         checkUpgrade.click();
     }
     public void menuOption(){
+        maximizeWindow();
         checkmenuoption.click();
         Select option = new Select(driver.findElement(By.xpath(menuoption)));
         option.selectByIndex(1);
     }
     public void usebundle(){
+        maximizeWindow();
         useBundles.click();
     }
     public void UseBusiness(){
+        maximizeWindow();
         useBusiness.click();
     }
     public void useTV(){
        maximizeWindow();
        usetv.click();
+    }
+    public void useonelinesupport(){
+        maximizeWindow();
+        usesupportcenter.click();
+    }
+    public void getBrokenLink() {
+        findBrokenLink();
     }
 }
