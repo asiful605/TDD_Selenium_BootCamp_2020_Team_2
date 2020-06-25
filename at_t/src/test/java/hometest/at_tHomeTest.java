@@ -18,11 +18,10 @@ public class at_tHomeTest extends WebAPI {
 //        mainhomepage.usersearchbox();
 //      }
 //    @Test(priority = 2)
-//    public void testsearchclickbutton() throws InterruptedException {
+//    public void testsearchclickbutton() {
 //        getInitElements();
 //        mainhomepage.usersearchbox();
 //        mainhomepage.searchclickbutton();
-//        //Thread.sleep(3000);
 //      }
 //      @Test (priority = 3)
 //      public void testscroll() throws InterruptedException {
@@ -98,16 +97,12 @@ public class at_tHomeTest extends WebAPI {
 //        getInitElements();
 //        mainhomepage.useTV();
 //    }
+
 //    @Test(priority = 17)
-//        public void testsupport(){
+//    public void testbrokenlink(){
 //        getInitElements();
-//        mainhomepage.useonelinesupport();
+//        mainhomepage.getBrokenLink();
 //    }
-    @Test(priority = 17)
-    public void testbrokenlink(){
-        getInitElements();
-        mainhomepage.getBrokenLink();
-    }
 
 
 }

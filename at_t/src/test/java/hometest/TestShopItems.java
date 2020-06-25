@@ -12,33 +12,37 @@ public class TestShopItems extends WebAPI {
         mainhomepage = PageFactory.initElements(driver, ShopItems.class);
     }
 
-    @Test(priority = 1)
-    public void testHomePage() throws InterruptedException {
-        mainhomepage.findDeals(); //working
-        mainhomepage.clickAccessories(); //working
-    }
-    @Test(priority = 8)
-    public void testShopNow() throws InterruptedException {
-        getInitElements();
-        mainhomepage.clickShopnow();
-        Thread.sleep(500);
-    }
-    @Test(priority = 9)
-    public void testColor() throws InterruptedException {
-        getInitElements();
-        mainhomepage.clickColor();
-        Thread.sleep(100);
-    }
-    @Test(priority = 10)
-    public void testMemory() throws InterruptedException {
-        getInitElements();
-        mainhomepage.clickMemory();
-        Thread.sleep(100);
-    }
-    @Test(priority = 11)
-    public void testCondition() throws InterruptedException {
+//    @Test(priority = 1)
+//    public void testHomePage() throws InterruptedException {
+//        mainhomepage.findDeals(); //working
+//        mainhomepage.clickAccessories(); //working
+//    }
+//    @Test(priority = 2)
+//    public void testShopNow() throws InterruptedException {
+//        getInitElements();
+//        mainhomepage.clickShopnow();
+//        Thread.sleep(500);
+//    }
+//    @Test(priority = 3)
+//    public void testColor() throws InterruptedException {
+//        getInitElements();
+//        mainhomepage.clickColor();
+//        Thread.sleep(100);
+//    }
+//    @Test(priority = 4)
+//    public void testMemory() throws InterruptedException {
+//        getInitElements();
+//        mainhomepage.clickMemory();
+//        Thread.sleep(100);
+//    }
+//    @Test(priority = 5)
+//    public void testwirelesssec(){
+//        getInitElements();
+//        mainhomepage.wirelessection();
+//    }
+    @Test(priority = 6)
+    public void tests20PO(){
         getInitElements();
         mainhomepage.selectpriceOption();
-        Thread.sleep(100);
     }
 }

@@ -37,10 +37,18 @@ public class ShopItems extends WebAPI {
     WebElement addPlan;
     @FindBy(how=How.XPATH,using = "//button[contains(@class,'btn btn-primary-2 false bg-functional-blue color-ui-white btn-large btn-full-width')]")
     WebElement clickContinue;
+    @FindBy(how=How.XPATH,using = "//span[@class='z1-tier1-text'][contains(text(),'Wireless')]")
+    WebElement usewireless;
+    @FindBy(how=How.XPATH,using = "//*[@id=\"BENEFITS_PANEL3story\"]/div/span/a")
+    WebElement shopphones;
+
     public void maximizeWindow(){
         driver.manage().window().maximize();
     }
 
+    public void wirelessection(){ maximizeWindow();
+        usewireless.click();
+    }
     public void findDeals() {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", deals);
@@ -53,33 +61,36 @@ public class ShopItems extends WebAPI {
         findownPhone.click();
     }
     public void clickAccessories(){
-        driver.get("https://www.att.com/wireless/");
+        usewireless.click();
         findAccessories.click();
     }
     public void clickWirelessDeals() {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", wirelessDeals);
     }
-    public void clickCases(){
+    public void clickCases(){maximizeWindow();
         getStarted.click();
         driver.navigate().back();
     }
-    public void clickShopnow(){
-        driver.get("https://www.att.com/wireless/");
+    public void clickShopnow(){ maximizeWindow();
+        usewireless.click();
         shopNow.click();
     }
-    public void clickColor(){
-        driver.get("https://www.att.com/wireless/");
+    public void clickColor(){maximizeWindow();
+        usewireless.click();
         shopNow.click();
         chooseColor.click();
     }
-    public void clickMemory(){
-        driver.get("https://www.att.com/wireless/");
+    public void clickMemory(){maximizeWindow();
+        usewireless.click();
+        //driver.get("https://www.att.com/wireless/");
         shopNow.click();
         chooseMemory.click();
     }
-    public void selectpriceOption(){
-        driver.get("https://www.att.com/buy/phones/samsung-galaxy-s20-5g-128gb-cosmic-gray.html?offerid=13100005");
+    public void selectpriceOption(){maximizeWindow();
+        usewireless.click();
+        shopphones.click();
+        //driver.get("https://www.att.com/buy/phones/samsung-galaxy-s20-5g-128gb-cosmic-gray.html?offerid=13100005");
         priceoption.click();
     }
 }

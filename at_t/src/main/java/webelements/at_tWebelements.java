@@ -23,5 +23,4 @@ public class at_tWebelements {
     public static final String Bundles = "//li[@id='HEADBAND06']//a[@class='_1hxmk']";
     public static final String Business = "//a[@id='watch-tv-link']";
     public static final String tv = "//span[@class='z1-tier1-text'][contains(text(),'TV')]";
-    public static final String supportcenter = "//span[contains(text(),'Get help online')]";
 }

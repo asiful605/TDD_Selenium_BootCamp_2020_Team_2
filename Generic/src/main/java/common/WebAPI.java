@@ -120,7 +120,7 @@ public class WebAPI {
             getLocalDriver(os, browserName);
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
     }
@@ -602,6 +602,7 @@ public class WebAPI {
         String text = webElement.getText();
         return text;
     }
+
     public void windowMaximize(){
         driver.manage().window().maximize();
     }
@@ -661,6 +662,17 @@ public class WebAPI {
     public void selectOptionByIndex(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
+    }
+
+    public void mouseHover(WebElement element) {
+        try {
+            Actions hover = new Actions(driver);
+            hover.moveToElement(element).perform();
+        } catch (Exception ex) {
+            System.out.println("1st mouse-hover attempt failed - Attempting 2nd time");
+            Actions hover = new Actions(driver);
+            hover.moveToElement(element).perform();
+        }
     }
 }
 
