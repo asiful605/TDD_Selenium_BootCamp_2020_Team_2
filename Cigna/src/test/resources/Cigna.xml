@@ -16,8 +16,9 @@
 
     <test name="CignaHomePage">
         <classes>
-<!--            <class name="hometest.CignaHomePageTest"></class>-->
-            <class name="hometest.CignaInternationalTest"></class>
+            <class name="hometest.CignaHomePageTest"></class>
+<!--            <class name="hometest.CignaInternationalTest"></class>-->
+
         </classes>
 
     </test>

@@ -62,7 +62,7 @@ public class DataReader {
 
     static Workbook book;
     static Sheet LogIn;
-    public static String path="DataTest/MyFilee.xlsx";
+    public static String path="DataTest\\SearchPlans.xlsx";
 
     public  Object[][] fileReader3(String sheetName) throws IOException {
         File file = new File(path);

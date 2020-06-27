@@ -7,60 +7,36 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-import javax.swing.*;
+//import javax.swing.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import static webelements.at_tWebelements.*;
 
 public class at_tHomePage extends WebAPI {
-    @FindBy(how = How.CSS, using = searchbox )
-    WebElement usersearchbox;
-    @FindBy(how = How.XPATH, using = clicksearchbutton )
-    WebElement clickonsearchbutton;
-    @FindBy(how = How.CSS, using = accountlogin)
-    WebElement useraccountlogin;
-    @FindBy(how = How.XPATH, using = clickimageiphone)
-    WebElement webelementofiphoneimage;
-    @FindBy(how = How.CSS, using = pricingoptions)
-    WebElement webElementpricingoptions;
-    @FindBy(how= How.CSS,using = hoverOnMenu)
-    WebElement MenuElement;
-    @FindBy(how=How.XPATH,using=InternetElement)
-    WebElement netElement;
-    @FindBy(how=How.XPATH,using=ExploretElement)
-    WebElement ExploreNetElement;
-    @FindBy(how=How.CSS,using=imageElement)
-    WebElement clickOnImageelement;
-    @FindBy(how=How.CSS,using=popUpElement)
-    WebElement PopUpWebElement;
-    @FindBy(how=How.CSS,using=accountElement)
-    WebElement accountWebElement;
-    @FindBy(how=How.CSS,using=clickOnDropButton)
-    WebElement dropButtonWebElement;
-    @FindBy(how = How.XPATH, using = dealsupdate)
-    WebElement getDealsUpdate;
-    @FindBy(how = How.XPATH, using = signmeup)
-    WebElement userSignmeUp;
-    @FindBy(how = How.XPATH, using = upgrade)
-    WebElement checkUpgrade;
-    @FindBy(how = How.XPATH, using = menuoption)
-    WebElement checkmenuoption;
-    @FindBy(how = How.XPATH, using = shopiphone)
-    WebElement useshopiphone;
-    @FindBy(how = How.XPATH, using = Bundles)
-    WebElement useBundles;
-    @FindBy(how = How.XPATH, using = Business)
-    WebElement useBusiness;
-    @FindBy(how = How.XPATH, using = tv)
-    WebElement usetv;
-    @FindBy(how = How.XPATH, using = forDealsUrl)
-    WebElement useforDealsUrl;
-    @FindBy(how = How.XPATH, using = prepaidUrl)
-    WebElement useprepaidUrl;
+    @FindBy(how = How.CSS, using = searchbox) WebElement usersearchbox;
+    @FindBy(how = How.XPATH, using = clicksearchbutton) WebElement clickonsearchbutton;
+    @FindBy(how = How.CSS, using = accountlogin) WebElement useraccountlogin;
+    @FindBy(how = How.XPATH, using = clickimageiphone) WebElement webelementofiphoneimage;
+    @FindBy(how = How.CSS, using = pricingoptions) WebElement webElementpricingoptions;
+    @FindBy(how = How.CSS,using = hoverOnMenu) WebElement MenuElement;
+    @FindBy(how = How.XPATH,using= InternetElement) WebElement netElement;
+    @FindBy(how = How.XPATH,using= ExploretElement) WebElement ExploreNetElement;
+    @FindBy(how = How.CSS,using= imageElement) WebElement clickOnImageelement;
+    @FindBy(how = How.CSS,using= popUpElement) WebElement PopUpWebElement;
+    @FindBy(how = How.CSS,using= accountElement) WebElement accountWebElement;
+    @FindBy(how = How.CSS,using= clickOnDropButton) WebElement dropButtonWebElement;
+    @FindBy(how = How.XPATH, using = dealsupdate) WebElement getDealsUpdate;
+    @FindBy(how = How.XPATH, using = signmeup) WebElement userSignmeUp;
+    @FindBy(how = How.XPATH, using = upgrade) WebElement checkUpgrade;
+    @FindBy(how = How.XPATH, using = menuoption) WebElement checkmenuoption;
+    @FindBy(how = How.XPATH, using = shopiphone) WebElement useshopiphone;
+    @FindBy(how = How.XPATH, using = Bundles) WebElement useBundles;
+    @FindBy(how = How.XPATH, using = Business) WebElement useBusiness;
+    @FindBy(how = How.XPATH, using = tv) WebElement usetv;
+    @FindBy(how = How.XPATH, using = forDealsUrl) WebElement useforDealsUrl;
+    @FindBy(how = How.XPATH, using = prepaidUrl) WebElement useprepaidUrl;
 
     public static void findBrokenLink() {
         List<WebElement> links = driver.findElements(By.tagName("a"));

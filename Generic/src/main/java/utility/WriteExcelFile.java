@@ -4,35 +4,33 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class WriteExcelFile {
 
-
     //private static final String FILE_NAME = System.getProperty("user.dir") + "DataTest\MyFilee.xlsx";
-    private static final String FILE_NAME = "F:\\SeleniumProject\\TDD_Selenium_BootCamp_2020_Team_2\\at_t\\DataTest\\SearchItems.xlsx";
+    private static final String FILE_NAME = "F:\\SeleniumProject\\TDD_Selenium_BootCamp_2020_Team_2\\Cigna\\DataTest\\userandpass.xlsx";
 
     public static void main(String[] args) { writeExcel(); }
 
     public static void writeExcel(){
         XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet("itemlists");
+        XSSFSheet sheet = workbook.createSheet("login");
 
-//        Object[][] stDetails = {
-//                {"Sl", "FirstName", "LastName", "ContactNumber"},
-//                {"1", "Asiful", "islam", "897598759"},
-//                {"2", "Mezbah", "Ahmed", "997598759"},
-//                {"2", "Tanjina", "Rahman", "797598759"},
-//        };
         Object[][] stDetails = {
-                {"Sl", "Items"},
-                {"1", "iphone 11"},
-                {"2", "apple watch"},
-                {"2", "s20 ultra"},
+                { "username", "password"},
+                { "Asiful", "A1234"},
+                { "Mezbah", "g2134"},
+                { "Tanjina", "t1234"},
         };
+//        Object[][] stDetails = {
+//                {"healtcare"},
+//                {"Dental"},
+//                {"Docstors"},
+//                {"Pharmacys"},
+//        };
         int rowNum = 0;
         System.out.println("Excel file Created");
 

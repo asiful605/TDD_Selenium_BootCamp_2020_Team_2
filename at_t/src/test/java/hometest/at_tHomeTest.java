@@ -120,7 +120,7 @@ public class at_tHomeTest extends WebAPI {
 //     }
 //     @DataProvider(name = "testdata")
 //    public Object[] testitemsFromDB() throws Exception {
-//        Database db = new DataBase();
+//        Database db = new Database();
 //        //Database db = new Database();
 //        Object[] data=db.getUserDatafromDB().toArray();
 //        return data;

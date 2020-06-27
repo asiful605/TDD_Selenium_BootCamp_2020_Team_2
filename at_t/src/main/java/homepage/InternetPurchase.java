@@ -10,32 +10,20 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
-
 import java.util.List;
-
 import static webelements.IntPurchaseWebelements.*;
 
 public class InternetPurchase extends WebAPI {
 
-    @FindBy(how = How.XPATH,using = internet)
-    WebElement clickinternet;
-    @FindBy(how = How.XPATH,using = support)
-    WebElement usesupport;
-    @FindBy(how = How.XPATH, using = shopalloffers)
-    WebElement useshopalloffers;
-    @FindBy(how = How.XPATH, using = adressfield)
-    WebElement enteradressfield;
-    @FindBy(how = How.XPATH, using = zipcode)
-    WebElement usezipcode;
-    @FindBy(how = How.XPATH, using = Baddresscheckbox)
-    WebElement checkBaddresscheckbox;
-    @FindBy(how = How.XPATH, using = listclick)
-    WebElement checklistclick;
-    @FindBy(how = How.XPATH, using = submitdeals)
-    WebElement checksubmitdeals;
-    @FindBy(how = How.XPATH, using = checkavail)
-    WebElement checkcheckavail;
-
+    @FindBy(how = How.XPATH,using = internet) WebElement clickinternet;
+    @FindBy(how = How.XPATH,using = support) WebElement usesupport;
+    @FindBy(how = How.XPATH, using = shopalloffers) WebElement useshopalloffers;
+    @FindBy(how = How.XPATH, using = adressfield) WebElement enteradressfield;
+    @FindBy(how = How.XPATH, using = zipcode) WebElement usezipcode;
+    @FindBy(how = How.XPATH, using = Baddresscheckbox) WebElement checkBaddresscheckbox;
+    @FindBy(how = How.XPATH, using = listclick) WebElement checklistclick;
+    @FindBy(how = How.XPATH, using = submitdeals) WebElement checksubmitdeals;
+    @FindBy(how = How.XPATH, using = checkavail) WebElement checkcheckavail;
 
     public void clickSupport(){
         usesupport.click();
