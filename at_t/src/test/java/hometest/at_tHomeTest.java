@@ -3,8 +3,10 @@ package hometest;
 import common.WebAPI;
 import homepage.at_tHomePage;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import reporting.TestLogger;
+import java.io.IOException;
 
 public class at_tHomeTest extends WebAPI {
 
@@ -12,75 +14,73 @@ public class at_tHomeTest extends WebAPI {
     public void getInitElements() {
         mainhomepage = PageFactory.initElements(driver, at_tHomePage.class);
       }
-//    @Test(priority = 1)
-//    public void testusersearchbox() throws InterruptedException {
+//    @Test
+//    public void testusersearchbox(){
 //        getInitElements();
 //        mainhomepage.usersearchbox();
 //      }
-//    @Test(priority = 2)
+//    @Test
 //    public void testsearchclickbutton() {
 //        getInitElements();
-//        mainhomepage.usersearchbox();
+//        //mainhomepage.usersearchbox();
 //        mainhomepage.searchclickbutton();
 //      }
-//      @Test (priority = 3)
-//      public void testscroll() throws InterruptedException {
+//      @Test
+//      public void testscroll(){
 //        getInitElements();
 //        mainhomepage.scrolldownwebpage();
-//        Thread.sleep(3000);
 //      }
-//      @Test (priority = 4)
+//      @Test
 //      public void testscrolltoend() throws InterruptedException {
 //        getInitElements();
 //        mainhomepage.scrolltoend();
 //      }
-//      @Test(priority = 5)
+//      @Test
 //      public void testclickaccountlogin(){
 //        getInitElements();
 //        mainhomepage.clickaccountlogin();
 //      }
-//      @Test(priority = 6)
-//      public void testiphoneimage() throws InterruptedException {
+//      @Test
+//      public void testiphoneimage(){
 //          getInitElements();
 //          mainhomepage.clickoniphoneimage();
-//          Thread.sleep(3000);
 //      }
-//      @Test(priority = 7)
+//      @Test
 //      public void testpricingoption() throws InterruptedException {
 //          getInitElements();
 //          mainhomepage.clickoniphoneimage();
 //          mainhomepage.selectpricingoption();
 //     }
-//     @Test(priority = 8)
+//     @Test
 //     public void testhoveringOnMenuElement() throws InterruptedException {
 //     getInitElements();
 //     mainhomepage.hoveringOnMenuElement();
 //      }
-//     @Test(priority = 9)
+//     @Test
 //     public void testUserclickOnImageelement(){ getInitElements();
 //     mainhomepage.UserclickOnImageelement();
 //      }
-//     @Test(priority = 10)
+//     @Test
 //      public void testUserhandleAlert(){
 //      getInitElements();
 //      mainhomepage.handleAlert();
 //      }
-//      @Test(priority = 11)
+//      @Test
 //      public void testupdateUserDeals() throws InterruptedException {
 //        getInitElements();
 //        mainhomepage.userDealsUpdate();
 //      }
-//      @Test(priority = 12)
+//      @Test
 //      public void testcheckUpgrade(){
 //          getInitElements();
 //          mainhomepage.checkUpgrade();
 //      }
-//        @Test(priority = 13)
+//        @Test
 //        public void testcheckMenuOption(){
 //        getInitElements();
 //        mainhomepage.menuOption();
 //      }
-//    @Test(priority = 14)
+//    @Test
 //    public void testBundles(){
 //        getInitElements();
 //        mainhomepage.usebundle();
@@ -90,19 +90,39 @@ public class at_tHomeTest extends WebAPI {
 //      getInitElements();
 //      mainhomepage.UseBusiness();
 //      }
-//      @Test(priority = 16)
+//      @Test
 //      public void testtv(){
 //        TestLogger.log(getClass().getSimpleName() + ": " + convertToString(new Object() {
 //        }.getClass().getEnclosingMethod().getName()));
 //        getInitElements();
 //        mainhomepage.useTV();
 //    }
-
-//    @Test(priority = 17)
+//    @Test
 //    public void testbrokenlink(){
 //        getInitElements();
 //        mainhomepage.getBrokenLink();
 //    }
-
-
+      @DataProvider
+      public static Object[][] getData() throws IOException, IOException {
+      DataReader reader= new DataReader();
+      Object[][] Data  =  reader.fileReader3("itemslists");
+      return Data;
+      }
+      @Test(dataProvider="getData",enabled = true)
+      public void TestItems(String Items){
+        getInitElements();
+        mainhomepage.searchItemsFromXlsx(Items);
+    }
+//     @Test(dataProvider = "testdata")
+//    public void testsearchitemsFromDB(String key) {
+//        getInitElements();
+//        mainhomepage.searchtemsFromDB(key);
+//     }
+//     @DataProvider(name = "testdata")
+//    public Object[] testitemsFromDB() throws Exception {
+//        Database db = new DataBase();
+//        //Database db = new Database();
+//        Object[] data=db.getUserDatafromDB().toArray();
+//        return data;
+//     }
 }

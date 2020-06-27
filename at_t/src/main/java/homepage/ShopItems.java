@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ShopItems extends WebAPI {
-    @FindBy(how = How.XPATH, using = "//i[@id='ge5p-menu-active']")
-    WebElement Hamburgerlink;
     @FindBy(how = How.XPATH,using ="//span[@class='z1-tier1-text'][contains(text(),'Deals')]")
     WebElement deals;
     @FindBy(how=How.XPATH,using = "//a[contains(@class,'_20CgK _1hxmk')]//span[contains(@class,'')][contains(text(),'Phones')]")
@@ -42,11 +40,9 @@ public class ShopItems extends WebAPI {
     @FindBy(how=How.XPATH,using = "//*[@id=\"BENEFITS_PANEL3story\"]/div/span/a")
     WebElement shopphones;
 
-    public void maximizeWindow(){
-        driver.manage().window().maximize();
-    }
+    { driver.manage().window().maximize(); }
 
-    public void wirelessection(){ maximizeWindow();
+    public void wirelessection(){
         usewireless.click();
     }
     public void findDeals() {
@@ -57,9 +53,6 @@ public class ShopItems extends WebAPI {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", phones);
     }
-    public void bringOwnPhone() throws InterruptedException {
-        findownPhone.click();
-    }
     public void clickAccessories(){
         usewireless.click();
         findAccessories.click();
@@ -68,29 +61,27 @@ public class ShopItems extends WebAPI {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", wirelessDeals);
     }
-    public void clickCases(){maximizeWindow();
+    public void clickCases(){
         getStarted.click();
         driver.navigate().back();
     }
-    public void clickShopnow(){ maximizeWindow();
+    public void clickShopnow(){
         usewireless.click();
         shopNow.click();
     }
-    public void clickColor(){maximizeWindow();
+    public void clickColor(){
         usewireless.click();
         shopNow.click();
         chooseColor.click();
     }
-    public void clickMemory(){maximizeWindow();
+    public void clickMemory(){
         usewireless.click();
-        //driver.get("https://www.att.com/wireless/");
         shopNow.click();
         chooseMemory.click();
     }
-    public void selectpriceOption(){maximizeWindow();
+    public void selectpriceOption(){
         usewireless.click();
         shopphones.click();
-        //driver.get("https://www.att.com/buy/phones/samsung-galaxy-s20-5g-128gb-cosmic-gray.html?offerid=13100005");
         priceoption.click();
     }
 }

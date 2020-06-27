@@ -17,10 +17,11 @@
 
     <test name="HomePage">
         <classes>
-<!--            <class name="hometest.at_tHomeTest"></class>-->
+            <class name="hometest.at_tHomeTest"></class>
 <!--            <class name="hometest.TestInternetPurchase"></class>-->
-            <class name="hometest.TestShopItems"></class>
+<!--            <class name="hometest.TestShopItems"></class>-->
 <!--            <class name="hometest.TestDataDriven"></class>-->
+<!--            <class name="hometest.TestShopTV"></class>-->
 
         </classes>
 

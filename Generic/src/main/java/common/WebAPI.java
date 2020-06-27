@@ -35,9 +35,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class WebAPI {
-    // All the setup and Helper method will be here
-
-    //ExtentReport
     public static ExtentReports extent;
 
     @BeforeSuite
@@ -263,6 +260,7 @@ public class WebAPI {
     public void navigateBack() {
         driver.navigate().back();
     }
+
     public void navigateTo(String url) {
         driver.navigate().to(url);
     }
@@ -270,6 +268,7 @@ public class WebAPI {
     public void navigateForward() {
         driver.navigate().forward();
     }
+
     public void navigateRefresh() {
         driver.navigate().refresh();
     }
@@ -287,7 +286,6 @@ public class WebAPI {
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
         Date date = new Date();
         df.format(date);
-
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(file,
@@ -296,7 +294,6 @@ public class WebAPI {
         } catch (Exception e) {
             System.out.println("Exception while taking screenshot " + e.getMessage());
         }
-
     }
 
     public static String convertToString(String st) {
@@ -562,6 +559,7 @@ public class WebAPI {
             System.out.println("CSS locator didn't work");
         }
     }
+
     // Customer Made Helper Methods for Amex.com
     public void brokenLink() throws IOException {
         //Step:1-->Get the list of all the links and images
@@ -591,23 +589,26 @@ public class WebAPI {
             System.out.println(activeLinks.get(j).getAttribute("href") + "--------->>> " + response);
         }
     }
+
     //  By Using FindBY@ Web Elements for Page objects
-    public void inputValueInTextBoxByWebElement(WebElement webElement, String value) {
+    public static void inputValueInTextBoxByWebElement(WebElement webElement, String value) {
         webElement.sendKeys(value + Keys.ENTER);
     }
-    public void clearInputBox(WebElement webElement) {
+
+    public static void clearInputBox(WebElement webElement) {
         webElement.clear();
     }
+
     public String getTextByWebElement(WebElement webElement) {
         String text = webElement.getText();
         return text;
     }
 
-    public void windowMaximize(){
+    public void windowMaximize() {
         driver.manage().window().maximize();
     }
 
-    public void implicitwait(){
+    public void implicitwait() {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
@@ -615,7 +616,8 @@ public class WebAPI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
     }
-    public void findBrokenLink() {
+
+    public static void findBrokenLink() {
         List<WebElement> links = driver.findElements(By.tagName("a"));
         System.out.println("Total links are " + links.size());
         for (int i = 0; i < links.size(); i++) {
@@ -624,6 +626,7 @@ public class WebAPI {
             verifyLinkActive(url);
         }
     }
+
     public static void verifyLinkActive(String linkUrl) {
         try {
             URL url = new URL(linkUrl);
@@ -639,7 +642,8 @@ public class WebAPI {
         } catch (Exception e) {
         }
     }
-    public void handleWindow() {
+
+    public static void handleWindow() {
         String parentHandle = driver.getWindowHandle();
         System.out.println("parent window - " + parentHandle);
         Set<String> handles = driver.getWindowHandles();
@@ -650,21 +654,23 @@ public class WebAPI {
             }
         }
     }
-    public void Enter(){
+
+    public static void Enter() {
         Actions drpdown = new Actions(driver);
         drpdown.sendKeys(Keys.ENTER).perform();
     }
-    public void navigateurl(String url){
+
+    public static void navigateurl(String url) {
         driver.navigate().to(url);
     }
 
-    //Drop Down for Index
+    /* Drop Down for Index */
     public void selectOptionByIndex(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }
 
-    public void mouseHover(WebElement element) {
+    public static void mouseHover(WebElement element) {
         try {
             Actions hover = new Actions(driver);
             hover.moveToElement(element).perform();
@@ -672,6 +678,32 @@ public class WebAPI {
             System.out.println("1st mouse-hover attempt failed - Attempting 2nd time");
             Actions hover = new Actions(driver);
             hover.moveToElement(element).perform();
+        }
+    }
+
+    public static void refreshPage() {
+        driver.navigate().refresh();
+    }
+
+    public static void doubleClickElement(WebElement element) {
+        Actions act = new Actions(driver);
+        act.doubleClick(element).perform();
+    }
+
+    public static void rightClickElement(WebElement element) {
+        Actions act = new Actions(driver);
+        act.contextClick(element).perform();
+    }
+
+    public static void switchToNewWindow() {
+        // Store the current window handle
+        String winHandleBefore = driver.getWindowHandle();
+    }
+    public static void checkCheckbox(boolean checked) {
+        WebElement checkbox = driver.findElement(By.id("cardActivity"));
+        if (checked != checkbox.isSelected())
+        {
+            checkbox.click();
         }
     }
 }

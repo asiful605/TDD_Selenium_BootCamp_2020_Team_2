@@ -10,19 +10,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class WriteExcelFile {
-    private static final String FILE_NAME = System.getProperty("user.dir") + "/DataTest/TestExcelFile.xlsx";
 
-    //private static final String FILE_NAME = "DataTest/myFile.xlsx";
+
+    //private static final String FILE_NAME = System.getProperty("user.dir") + "DataTest\MyFilee.xlsx";
+    private static final String FILE_NAME = "F:\\SeleniumProject\\TDD_Selenium_BootCamp_2020_Team_2\\at_t\\DataTest\\SearchItems.xlsx";
+
+    public static void main(String[] args) { writeExcel(); }
 
     public static void writeExcel(){
         XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet("studentList");
+        XSSFSheet sheet = workbook.createSheet("itemlists");
 
+//        Object[][] stDetails = {
+//                {"Sl", "FirstName", "LastName", "ContactNumber"},
+//                {"1", "Asiful", "islam", "897598759"},
+//                {"2", "Mezbah", "Ahmed", "997598759"},
+//                {"2", "Tanjina", "Rahman", "797598759"},
+//        };
         Object[][] stDetails = {
-                {"Sl", "FirstName", "LastName", "ContactNumber"},
-                {"1", "Anika", "islam", "897598759"},
-                {"2", "Mahid", "Samad", "997598759"},
-                {"2", "Mezba", "Ahmed", "797598759"},
+                {"Sl", "Items"},
+                {"1", "iphone 11"},
+                {"2", "apple watch"},
+                {"2", "s20 ultra"},
         };
         int rowNum = 0;
         System.out.println("Excel file Created");
@@ -51,5 +60,4 @@ public class WriteExcelFile {
         }
         System.out.println("Done");
     }
-
 }

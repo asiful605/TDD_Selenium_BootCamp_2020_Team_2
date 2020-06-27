@@ -2,7 +2,7 @@ package webelements;
 
 public class at_tWebelements {
     public static final String searchbox = "input[id='z1-searchfield']";
-    public static final String clicksearchbutton = "#searchForm > fieldset > button";
+    public static final String clicksearchbutton = "//*[@id=\"searchForm\"]/fieldset/button";
     public static final String accountlogin = "span[id='z1-profile-text']";
     public static final String clickimageiphone = "//p[contains(text(),'Get the amazing iPhone SE 128GB for')]";
     public static final String pricingoptions = "#pricing-options-listbox1 > span";

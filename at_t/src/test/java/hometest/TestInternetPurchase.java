@@ -12,23 +12,23 @@ public class TestInternetPurchase extends WebAPI {
         mainhomepage = PageFactory.initElements(driver, InternetPurchase.class);
     }
 
-    @Test (priority = 1)
+    @Test
     public void supportClick() throws InterruptedException {
         getInitElements();
         mainhomepage.clickSupport();
         Thread.sleep(2000);
     }
-    @Test (priority = 2)
+    @Test
     public void shopAllOffers() throws InterruptedException {
         getInitElements();
         mainhomepage.shopAllOfferClick();
     }
-    @Test(priority = 3)
+    @Test
     public void enterAddress() throws InterruptedException {
         getInitElements();
         mainhomepage.enteradressfield();
     }
-    @Test(priority = 4)
+    @Test
     public void submitdeals() throws InterruptedException {
         getInitElements();
         mainhomepage.Baddresscheckbox();
